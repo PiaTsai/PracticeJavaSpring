@@ -82,6 +82,8 @@ public class MemberAccountServiceImpl implements MemberAccountService {
             retData.put("Msg", ErrorEnum.DB_ERROR.getDescription());
             return retData;
         }
+        memberAccount = memberAccountMapper.getMemberAccountByAccount(memberAccount.getAccount());
+        retData.put("Data", memberAccount.generateReturnMap());
         return retData;
     }
 
